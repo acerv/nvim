@@ -141,6 +141,13 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, 'Toggle Inlay Hints')
           end
+
+          -- This will disable diagnostic text
+          map('<leader>lx', function()
+            vim.diagnostic.config {
+              virtual_text = not vim.diagnostic.config().virtual_text,
+            }
+          end, 'Toggle Diagnostic Text')
         end,
       })
 
