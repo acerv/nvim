@@ -166,6 +166,7 @@ return {
         yamlls = {},
         bashls = {},
         jsonls = {},
+        perlnavigator = {},
         pylsp = {
           settings = {
             pylsp = {
