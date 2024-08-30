@@ -103,6 +103,9 @@ return {
           -- or a suggestion from your LSP for this to activate.
           map('<leader>la', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
 
+          -- Show all diagnostics in the current file
+          map('<leader>ld', require('telescope.builtin').diagnostics, 'Search Diagnostics')
+
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
