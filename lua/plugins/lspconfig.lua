@@ -180,6 +180,13 @@ return {
             },
           },
         },
+        rust_analyzer = {
+          ['rust-analyzer'] = {
+            checkOnSave = {
+              command = 'clippy',
+            },
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
