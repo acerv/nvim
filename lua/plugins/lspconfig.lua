@@ -162,7 +162,22 @@ return {
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local servers = {
-        clangd = {},
+        clangd = {
+          -- configuration based on kernel development
+          -- https://github.com/x56Jason/nvim/tree/master
+          cmd = {
+            'clangd',
+            '--header-insertion=never',
+            '-j',
+            string.gsub(vim.fn.system 'nproc', '\n', ''),
+            '--completion-style=detailed',
+            '--function-arg-placeholders',
+            '--rename-file-limit=0',
+            '--background-index',
+            '--background-index-priority=normal',
+          },
+          filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+        },
         yamlls = {},
         bashls = {},
         jsonls = {},
