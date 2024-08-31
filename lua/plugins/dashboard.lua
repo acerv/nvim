@@ -20,6 +20,7 @@ return {
         dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
         dashboard.button('l', '󰘁  Open last session', [[:lua require('resession').load('last') <cr>]]),
         dashboard.button('f', '  Show sessions', [[:lua require('resession').load() <cr>]]),
+        dashboard.button('c', '  Configuration', '<CMD>:edit ~/.config/nvim<CR>'),
         dashboard.button('q', '󰈆  Quit NVIM', ':qa<CR>'),
       }
       dashboard.config.opts.noautocmd = true
