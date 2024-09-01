@@ -68,4 +68,7 @@ vim.opt.softtabstop = 8
 -- Global status bar
 vim.opt.laststatus = 3
 
+-- Terminal colors
+vim.opt.termguicolors = true
+
 -- vim: ts=2 sts=2 sw=2 et
