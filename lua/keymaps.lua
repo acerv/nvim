@@ -31,6 +31,20 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Save numbered vertical motions such as "80j" inside the jumplist
+-- In this way it's possible to move between jumps with CTRL+o and CTRL+i
+vim.keymap.set({ 'n', 'x' }, 'j', function()
+  return vim.v.count > 1 and "m'" .. vim.v.count .. 'j' or 'j'
+end, { noremap = true, expr = true })
+
+vim.keymap.set({ 'n', 'x' }, 'k', function()
+  return vim.v.count > 1 and "m'" .. vim.v.count .. 'k' or 'k'
+end, { noremap = true, expr = true })
+
+-- Move fast and centered in the screen
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move up and centered' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move down and centered' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
