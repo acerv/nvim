@@ -41,5 +41,25 @@ return {
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        textobjects = {
+          swap = {
+            enable = true,
+            swap_next = {
+              ['<leader>nn'] = '@parameter.inner',
+            },
+            swap_previous = {
+              ['<leader>np'] = '@parameter.inner',
+            },
+          },
+        },
+      }
+    end,
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et
