@@ -12,6 +12,7 @@ return {
       vim.keymap.set('n', '<leader>bn', '<cmd>BufferNext<CR>', { desc = 'Next buffer' })
       vim.keymap.set('n', '<leader>ba', '<cmd>BufferCloseAllButCurrent<CR>', { desc = 'Close all buffers but the current one' })
       vim.keymap.set('n', '<leader>bc', '<cmd>BufferClose<CR>', { desc = 'Close buffer' })
+      vim.keymap.set('n', '<leader>bA', '<cmd>BufferCloseAllButPinned<CR>', { desc = 'Close all buffers' })
     end,
     opts = {
       animation = false,
