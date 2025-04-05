@@ -3,7 +3,7 @@ return {
   event = { 'VeryLazy' },
   opts = {
     stages = 'static',
-    timeout = 1000,
+    timeout = 5000,
     render = 'wrapped-compact',
   },
   config = function(_, opts)
