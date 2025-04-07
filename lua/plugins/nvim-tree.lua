@@ -14,7 +14,7 @@ return {
       }
 
       local api = require 'nvim-tree.api'
-      vim.keymap.set('n', '<Space>e', api.tree.toggle, { desc = 'Open File tree' })
+      vim.keymap.set('n', '<leader>e', api.tree.toggle, { desc = 'Open File tree' })
     end,
   },
 }
