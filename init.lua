@@ -9,3 +9,7 @@ require 'options'
 require 'keymaps'
 require 'lazy-bootstrap'
 require 'lazy-plugins'
+
+if vim.loader then
+  vim.loader.enable()
+end
