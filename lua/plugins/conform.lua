@@ -25,7 +25,7 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'autopep8' },
+        python = { 'ruff_format' },
         bash = { 'shfmt' },
         json = { 'jd' },
       },

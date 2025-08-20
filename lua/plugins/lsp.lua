@@ -105,11 +105,7 @@ return {
         settings = {
           pylsp = {
             plugins = {
-              pyflakes = { enabled = false },
-              pycodestyle = { enabled = false },
-              mccabe = { enabled = false },
-              autopep8 = { enabled = true },
-              pylint = { enabled = true },
+              ruff = { enabled = true },
             },
           },
         },
@@ -161,10 +157,9 @@ return {
 
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'autopep8',
       'codespell',
       'jq',
-      'pylint',
+      'ruff',
       'markdownlint',
       'shfmt',
       'stylua',
