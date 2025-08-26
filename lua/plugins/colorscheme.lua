@@ -3,13 +3,28 @@ return {
     'rebelot/kanagawa.nvim',
     priority = 1000,
     config = function()
-      vim.cmd [[colorscheme kanagawa]]
-      vim.cmd.hi 'Comment gui=none'
+      require('kanagawa').setup {
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = 'none',
+              },
+            },
+          },
+        },
+      }
+
+      vim.cmd 'colorscheme kanagawa'
     end,
   },
   {
     'folke/tokyonight.nvim',
     priority = 1000,
-    config = true,
+    opts = { style = 'night' },
+  },
+  {
+    'EdenEast/nightfox.nvim',
+    priority = 1000,
   },
 }
