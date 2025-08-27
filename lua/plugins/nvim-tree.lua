@@ -2,7 +2,8 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     version = '*',
-    lazy = false,
+    lazy = true,
+    event = 'VimEnter',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },

@@ -3,6 +3,8 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
+    lazy = true,
+    event = { 'BufReadPre' },
     opts = {
       ensure_installed = {
         'bash',
@@ -34,6 +36,7 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
     requires = 'nvim-treesitter/nvim-treesitter',
+    event = { 'BufReadPre' },
     config = function()
       require('nvim-treesitter.configs').setup {
         textobjects = {
