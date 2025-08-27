@@ -22,8 +22,6 @@ return {
         map('<leader>ls', vim.lsp.buf.document_symbol, 'Document Symbols')
         map('<leader>ln', vim.lsp.buf.rename, 'Rename variable')
         map('<leader>la', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
-        map('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
-        map('<leader>ld', require('telescope.builtin').diagnostics, 'Search Diagnostics')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
