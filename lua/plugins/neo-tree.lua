@@ -10,6 +10,8 @@ return {
     config = function()
       require('neo-tree').setup {
         filesystem = {
+          use_libuv_file_watcher = true,
+          auto_refresh = true,
           filtered_items = {
             visible = true,
             show_hidden_count = true,
