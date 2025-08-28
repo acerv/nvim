@@ -65,3 +65,5 @@ vim.opt.laststatus = 3
 
 -- Terminal colors
 vim.opt.termguicolors = true
+
+vim.opt.autoread = true
