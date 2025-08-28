@@ -3,8 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
-    lazy = true,
-    event = { 'BufReadPre' },
+    event = { 'VeryLazy' },
     opts = {
       ensure_installed = {
         'bash',
