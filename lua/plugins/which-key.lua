@@ -1,8 +1,9 @@
 return {
   {
     'folke/which-key.nvim',
-    event = 'VimEnter',
+    event = 'VeryLazy',
     opts = {
+      preset = 'helix',
       icons = {
         mappings = vim.g.have_nerd_font,
         keys = vim.g.have_nerd_font and {} or {
@@ -40,8 +41,11 @@ return {
       spec = {
         { '<leader>b', group = 'Buffer' },
         { '<leader>s', group = 'Search' },
+        { '<leader>f', group = 'File/Find' },
+        { '<leader>g', group = 'Git' },
         { '<leader>l', group = 'LSP' },
         { '<leader>S', group = 'Session' },
+        { '<leader>u', group = 'UI' },
       },
     },
   },
