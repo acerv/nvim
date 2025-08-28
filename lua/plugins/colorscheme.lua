@@ -1,5 +1,13 @@
 return {
   {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd 'colorscheme tokyonight-night'
+    end,
+  },
+  {
     'rebelot/kanagawa.nvim',
     priority = 1000,
     config = function()
@@ -15,7 +23,7 @@ return {
         },
       }
 
-      vim.cmd 'colorscheme kanagawa'
+      -- vim.cmd 'colorscheme kanagawa'
     end,
     overrides = function(colors)
       local theme = colors.theme
