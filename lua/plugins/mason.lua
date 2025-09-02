@@ -1,23 +1,42 @@
 return {
-  { 'williamboman/mason.nvim', tag = 'stable', lazy = false },
   {
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    'williamboman/mason.nvim',
+    tag = 'stable',
     config = function()
       require('mason').setup()
 
-      local ensure_installed = vim.tbl_keys(vim.g.lsp_servers or {})
-      vim.list_extend(ensure_installed, {
-        'codespell',
+      local registry = require 'mason-registry'
+
+      -- These are package names sourced from the Mason registry,
+      -- and may not necessarily match the server names used in lspconfig
+      local ensure_installed = {
         'jq',
         'ruff',
-        'markdownlint',
+        'gopls',
         'shfmt',
         'stylua',
-      })
-
-      require('mason-tool-installer').setup {
-        ensure_installed = ensure_installed,
+        'clangd',
+        'json-lsp',
+        'codespell',
+        'markdownlint',
+        'perlnavigator',
+        'rust-analyzer',
+        'python-lsp-server',
+        'lua-language-server',
+        'bash-language-server',
+        'yaml-language-server',
+        'dockerfile-language-server',
       }
+
+      -- Ensure packages are installed and up to date
+      registry.refresh(function()
+        for _, name in pairs(ensure_installed) do
+          local package = registry.get_package(name)
+          if not registry.is_installed(name) then
+            package:install()
+          end
+        end
+      end)
     end,
   },
 }
