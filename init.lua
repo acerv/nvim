@@ -1,3 +1,8 @@
+-- Speedup neovim
+if vim.loader then
+  vim.loader.enable()
+end
+
 -- Set <space> as the leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -10,7 +15,3 @@ require 'keymaps'
 require 'lsp'
 require 'lazy-bootstrap'
 require 'lazy-plugins'
-
-if vim.loader then
-  vim.loader.enable()
-end
