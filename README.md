@@ -7,5 +7,4 @@ This is my own neovim distro based on
 
 To install it please use:
 
-	git clone https://github.com/acerv/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-
+    git clone https://github.com/acerv/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
