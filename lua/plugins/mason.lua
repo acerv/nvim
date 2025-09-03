@@ -1,6 +1,7 @@
 return {
   {
     'williamboman/mason.nvim',
+    event = 'VeryLazy',
     tag = 'stable',
     config = function()
       require('mason').setup()

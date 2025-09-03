@@ -1,6 +1,7 @@
 return {
   'stevearc/resession.nvim',
   opts = {},
+  event = 'VeryLazy',
   config = function()
     local resession = require 'resession'
     resession.setup {}

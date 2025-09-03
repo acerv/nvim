@@ -1,6 +1,7 @@
 return {
   'echasnovski/mini.indentscope',
   version = '*',
+  event = 'VeryLazy',
   config = function()
     local indent = require 'mini.indentscope'
 
