@@ -22,6 +22,7 @@ return {
         dashboard.button('f', '  Show sessions', [[:lua require('resession').load() <cr>]]),
         dashboard.button('c', '  Configuration', '<CMD>:edit ~/.config/nvim<CR>'),
         dashboard.button('L', '󰒲  Lazy', '<CMD>:Lazy<CR>'),
+        dashboard.button('M', '󱉙  Mason', '<CMD>:Mason<CR>'),
         dashboard.button('q', '󰈆  Quit NVIM', ':qa<CR>'),
       }
       dashboard.config.opts.noautocmd = true
