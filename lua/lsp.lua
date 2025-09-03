@@ -86,6 +86,10 @@ vim.g.lsp_servers = {
       },
     },
   },
+  ['marksman'] = {
+    cmd = { 'marksman', 'server' },
+    filetypes = { 'md', 'markdown' },
+  },
 }
 
 for name, setup in pairs(vim.g.lsp_servers) do

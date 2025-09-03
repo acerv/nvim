@@ -17,6 +17,7 @@ return {
         'shfmt',
         'stylua',
         'clangd',
+        'marksman',
         'json-lsp',
         'codespell',
         'markdownlint',
