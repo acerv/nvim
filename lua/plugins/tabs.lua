@@ -25,12 +25,9 @@ return {
       offsets = {
         {
           filetype = 'NvimTree',
-          text = 'NvimTree',
+          text = '',
           highlight = 'Directory',
           text_align = 'left',
-        },
-        {
-          filetype = 'snacks_layout_box',
         },
       },
     },
