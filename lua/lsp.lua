@@ -26,23 +26,27 @@ vim.g.lsp_servers = {
   },
   ['json-lsp'] = {},
   ['perlnavigator'] = {},
-  ['python-lsp-server'] = {
-    cmd = { 'pylsp' },
+  ['pyrefly'] = {
+    cmd = { 'pyrefly', 'lsp' },
+    filetypes = { 'python' },
     root_markers = {
+      'pyrefly.toml',
       'pyproject.toml',
       'setup.py',
       'setup.cfg',
       'requirements.txt',
       '.git',
     },
-    single_file_support = true,
+  },
+  ['ruff'] = {
+    cmd = { 'ruff', 'server' },
     filetypes = { 'python' },
-    settings = {
-      pylsp = {
-        plugins = {
-          ruff = { enabled = true },
-        },
-      },
+    root_markers = {
+      'pyproject.toml',
+      'setup.py',
+      'setup.cfg',
+      'requirements.txt',
+      '.git',
     },
   },
   ['rust-analyzer'] = {
