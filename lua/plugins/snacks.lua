@@ -18,19 +18,19 @@ return {
             key = 'e',
             icon = '',
             desc = 'New file',
-            action = ':ene <BAR> startinsert <CR>',
+            action = '<CMD>:ene <BAR> startinsert <CR>',
           },
           {
             key = 'l',
             icon = '󰘁',
             desc = 'Open last session',
-            action = [[:lua require('resession').load('last') <cr>]],
+            action = [[<CMD>:lua require('resession').load('last') <CR>]],
           },
           {
             key = 'f',
             icon = '',
             desc = 'Show sessions',
-            action = [[:lua require('resession').load() <cr>]],
+            action = [[<CMD>:lua require('resession').load() <CR>]],
           },
           {
             key = 'c',
