@@ -20,7 +20,7 @@ return {
         options = {
           indent_at_cursor = false,
         },
-        symbol = '▎',
+        symbol = '│ ',
       }
 
       vim.api.nvim_create_autocmd({ 'FileType' }, {
