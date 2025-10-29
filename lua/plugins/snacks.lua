@@ -5,18 +5,87 @@ return {
   opts = {
     bigfile = { enabled = true },
     bufdelete = { enabled = true },
-    dashboard = { enabled = false },
-    explorer = { enabled = false },
+    dashboard = {
+      enabled = true,
+      preset = {
+        header = table.concat({
+          '┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓',
+          '┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃',
+          '╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹',
+        }, '\n'),
+        keys = {
+          {
+            key = 'e',
+            icon = '',
+            desc = 'New file',
+            action = ':ene <BAR> startinsert <CR>',
+          },
+          {
+            key = 'l',
+            icon = '󰘁',
+            desc = 'Open last session',
+            action = [[:lua require('resession').load('last') <cr>]],
+          },
+          {
+            key = 'f',
+            icon = '',
+            desc = 'Show sessions',
+            action = [[:lua require('resession').load() <cr>]],
+          },
+          {
+            key = 'c',
+            icon = '',
+            desc = 'Configuration',
+            action = '<CMD>:edit ~/.config/nvim<CR>',
+          },
+          {
+            key = 'L',
+            icon = '󰒲',
+            desc = 'Lazy',
+            action = '<CMD>:Lazy<CR>',
+          },
+          {
+            key = 'M',
+            icon = '󱉙',
+            desc = 'Mason',
+            action = '<CMD>:Mason<CR>',
+          },
+          {
+            key = 'q',
+            icon = '󰈆',
+            desc = 'Quit',
+            action = '<CMD>:qa<CR>',
+          },
+        },
+      },
+    },
+    explorer = {
+      enabled = true,
+      opts = {
+        replace_netrw = true,
+      },
+    },
     indent = { enabled = false },
     input = { enabled = false },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      sources = {
+        explorer = {
+          layout = {
+            layout = {
+              width = 30,
+            },
+          },
+        },
+      },
+    },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = false },
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = true },
-    zen = { enabled = false },
+    zen = { enabled = true },
   },
   keys = {
     -- Top Pickers & Explorer
@@ -62,6 +131,13 @@ return {
         Snacks.picker.notifications()
       end,
       desc = 'Notification History',
+    },
+    {
+      '<leader>e',
+      function()
+        Snacks.explorer()
+      end,
+      desc = 'Open File Tree',
     },
     -- find
     {
@@ -333,6 +409,14 @@ return {
         Snacks.picker.colorschemes()
       end,
       desc = 'Colorschemes',
+    },
+    -- Zen mode
+    {
+      '<leader>z',
+      function()
+        Snacks.zen()
+      end,
+      desc = 'Zen mode',
     },
   },
 }
