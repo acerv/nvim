@@ -36,7 +36,7 @@ return {
             key = 'c',
             icon = '',
             desc = 'Configuration',
-            action = '<CMD>:edit ~/.config/nvim<CR>',
+            action = '<CMD>:cd ~/.config/nvim | edit ~/.config/nvim<CR>',
           },
           {
             key = 'L',
