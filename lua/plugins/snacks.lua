@@ -84,6 +84,7 @@ return {
     scope = { enabled = false },
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
+    terminal = { enabled = true },
     words = { enabled = true },
     zen = { enabled = true },
   },
@@ -418,5 +419,18 @@ return {
       end,
       desc = 'Zen mode',
     },
+    -- Terminal
+    {
+      "<A-3>",
+      function()
+        Snacks.terminal.toggle("/usr/bin/fish", {
+          cwd = vim.fn.getcwd()
+        })
+      end,
+      desc = 'Toggle terminal',
+    },
   },
+  init = function()
+    vim.keymap.set("t", "<A-3>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+  end,
 }
