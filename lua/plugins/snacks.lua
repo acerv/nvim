@@ -66,7 +66,8 @@ return {
       },
     },
     indent = { enabled = false },
-    input = { enabled = false },
+    input = { enabled = true },
+    lazygit = { enabled = true },
     picker = {
       enabled = true,
       sources = {
@@ -421,16 +422,24 @@ return {
     },
     -- Terminal
     {
-      "<A-3>",
+      '<A-3>',
       function()
-        Snacks.terminal.toggle("/usr/bin/fish", {
-          cwd = vim.fn.getcwd()
+        Snacks.terminal.toggle('/usr/bin/fish', {
+          cwd = vim.fn.getcwd(),
         })
       end,
       desc = 'Toggle terminal',
     },
+    -- Lazygit
+    {
+      '<leader>G',
+      function()
+        Snacks.lazygit()
+      end,
+      desc = 'Lazygit',
+    },
   },
   init = function()
-    vim.keymap.set("t", "<A-3>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+    vim.keymap.set('t', '<A-3>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
   end,
 }
