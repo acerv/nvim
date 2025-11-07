@@ -20,7 +20,7 @@ return {
           'codespell',
           'markdownlint',
           'perlnavigator',
-          'rust-analyzer',
+          -- 'rust-analyzer',
           'lua-language-server',
           'bash-language-server',
           'yaml-language-server',

@@ -56,13 +56,9 @@ vim.g.lsp_servers = {
       'Cargo.toml',
       '.git',
     },
-    filetypes = {
-      'rust',
-    },
-    capabilities = {
-      experimental = {
-        serverStatusNotification = true,
-      },
+    filetypes = { 'rust' },
+    cargo = {
+      allFeatures = true,
     },
     checkOnSave = {
       command = 'clippy',
