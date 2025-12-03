@@ -63,6 +63,9 @@ vim.g.lsp_servers = {
     checkOnSave = {
       command = 'clippy',
     },
+    cachePriming = {
+      enable = false,
+    },
   },
   ['lua-language-server'] = {
     cmd = { 'lua-language-server' },
