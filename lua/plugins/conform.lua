@@ -32,6 +32,7 @@ return {
         python = { 'ruff_organize_imports', 'ruff_format' },
         bash = { 'shfmt' },
         json = { 'jd' },
+        markdown = { 'prettier' },
       },
     },
     config = function(_, opts)

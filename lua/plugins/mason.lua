@@ -16,6 +16,7 @@ return {
           'stylua',
           'clangd',
           'pyrefly',
+          'prettier',
           'marksman',
           'json-lsp',
           'codespell',
