@@ -1,11 +1,12 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    main = 'nvim-treesitter.configs',
+    branch = 'main',
     event = 'VeryLazy',
-    opts = {
-      ensure_installed = {
+    main = 'nvim-treesitter',
+    config = function()
+      require('nvim-treesitter').setup()
+      local ensure_installed = {
         'bash',
         'c',
         'diff',
@@ -22,34 +23,27 @@ return {
         'perl',
         'go',
         'rust',
-      },
-      auto_install = true,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
+      }
+      local installed = require('nvim-treesitter').get_installed()
+      local to_install = vim.iter(ensure_installed)
+        :filter(function(p) return not vim.tbl_contains(installed, p) end)
+        :totable()
+      if #to_install > 0 then
+        require('nvim-treesitter').install(to_install)
+      end
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-    requires = 'nvim-treesitter/nvim-treesitter',
-    event = { 'BufReadPre' },
+    branch = 'main',
+    event = 'BufReadPre',
     config = function()
-      require('nvim-treesitter.configs').setup {
-        textobjects = {
-          swap = {
-            enable = true,
-            swap_next = {
-              ['<leader>nn'] = '@parameter.inner',
-            },
-            swap_previous = {
-              ['<leader>np'] = '@parameter.inner',
-            },
-          },
-        },
-      }
+      vim.keymap.set('n', '<leader>nn', function()
+        require('nvim-treesitter-textobjects.swap').swap_next('@parameter.inner')
+      end)
+      vim.keymap.set('n', '<leader>np', function()
+        require('nvim-treesitter-textobjects.swap').swap_previous('@parameter.inner')
+      end)
     end,
   },
 }
