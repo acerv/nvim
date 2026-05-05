@@ -11,7 +11,7 @@ return {
         ensure_installed = {
           'jq',
           'ruff',
-          'gopls',
+          -- 'gopls',
           'shfmt',
           'stylua',
           'clangd',
