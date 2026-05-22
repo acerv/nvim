@@ -65,7 +65,11 @@ return {
         replace_netrw = true,
       },
     },
-    indent = { enabled = false },
+    indent = {
+      enabled = true,
+      animate = { enabled = false },
+      scope = { enabled = true, cursor = false },
+    },
     input = { enabled = true },
     lazygit = { enabled = true },
     picker = {
@@ -141,14 +145,13 @@ return {
       end,
       desc = 'Open File Tree',
     },
+    -- buffers
+    { '<leader>bc', function() Snacks.bufdelete() end, desc = 'Close Buffer' },
+    { '<leader>ba', function() Snacks.bufdelete.other() end, desc = 'Close Other Buffers' },
+    { '<leader>bA', function() Snacks.bufdelete.all() end, desc = 'Close All Buffers' },
+    { '<leader>bn', '<cmd>bnext<cr>', desc = 'Next Buffer' },
+    { '<leader>bb', '<cmd>bprev<cr>', desc = 'Prev Buffer' },
     -- find
-    {
-      '<leader>fb',
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = 'Buffers',
-    },
     {
       '<leader>fc',
       function()
@@ -249,21 +252,6 @@ return {
       end,
       desc = 'Grep Open Buffers',
     },
-    {
-      '<leader>sg',
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = 'Grep',
-    },
-    {
-      '<leader>sw',
-      function()
-        Snacks.picker.grep_word()
-      end,
-      desc = 'Visual selection or word',
-      mode = { 'n', 'x' },
-    },
     -- search
     {
       '<leader>s"',
@@ -285,13 +273,6 @@ return {
         Snacks.picker.autocmds()
       end,
       desc = 'Autocmds',
-    },
-    {
-      '<leader>sb',
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = 'Buffer Lines',
     },
     {
       '<leader>sc',
