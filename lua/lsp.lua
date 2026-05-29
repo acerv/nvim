@@ -57,14 +57,18 @@ vim.g.lsp_servers = {
       '.git',
     },
     filetypes = { 'rust' },
-    cargo = {
-      allFeatures = true,
-    },
-    checkOnSave = {
-      command = 'clippy',
-    },
-    cachePriming = {
-      enable = false,
+    settings = {
+      ['rust-analyzer'] = {
+        cargo = {
+          allFeatures = true,
+        },
+        checkOnSave = {
+          command = 'clippy',
+        },
+        cachePriming = {
+          enable = false,
+        },
+      },
     },
   },
   ['lua-language-server'] = {
@@ -91,7 +95,7 @@ vim.g.lsp_servers = {
   },
   ['marksman'] = {
     cmd = { 'marksman', 'server' },
-    filetypes = { 'md', 'markdown' },
+    filetypes = { 'markdown' },
   },
 }
 
@@ -132,13 +136,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         callback = vim.lsp.buf.clear_references,
       })
 
-      vim.api.nvim_create_autocmd('LspDetach', {
-        group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
-        callback = function(event2)
-          vim.lsp.buf.clear_references()
-          vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
-        end,
-      })
     end
 
     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
@@ -152,5 +149,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         virtual_lines = not vim.diagnostic.config().virtual_lines,
       }
     end, 'Toggle Diagnostic Text')
+  end,
+})
+
+vim.api.nvim_create_autocmd('LspDetach', {
+  group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
+  callback = function(event2)
+    vim.lsp.buf.clear_references()
+    pcall(vim.api.nvim_clear_autocmds, { group = 'lsp-highlight', buffer = event2.buf })
   end,
 })

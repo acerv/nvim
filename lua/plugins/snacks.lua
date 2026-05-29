@@ -61,9 +61,7 @@ return {
     },
     explorer = {
       enabled = true,
-      opts = {
-        replace_netrw = true,
-      },
+      replace_netrw = true,
     },
     indent = {
       enabled = true,

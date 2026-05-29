@@ -31,7 +31,7 @@ return {
         lua = { 'stylua' },
         python = { 'ruff_organize_imports', 'ruff_format' },
         bash = { 'shfmt' },
-        json = { 'jd' },
+        json = { 'jq' },
         markdown = { 'prettier' },
       },
     },
@@ -39,7 +39,7 @@ return {
       vim.api.nvim_create_user_command('ToggleFormat', function(args)
         if args.bang then
           -- FormatDisable! will disable formatting just for this buffer
-          vim.b.disable_autoformat = not vim.b.disable_autoformat
+          vim.b[0].disable_autoformat = not vim.b[0].disable_autoformat
         else
           vim.g.disable_autoformat = not vim.g.disable_autoformat
         end
