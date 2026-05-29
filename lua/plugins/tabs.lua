@@ -11,6 +11,14 @@ return {
       end,
       diagnostics = 'nvim_lsp',
       always_show_bufferline = false,
+      offsets = {
+        {
+          filetype = 'snacks_layout_box',
+          text = 'File Explorer',
+          text_align = 'center',
+          separator = true,
+        },
+      },
     },
   },
 }
