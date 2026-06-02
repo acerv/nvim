@@ -1,13 +1,15 @@
 return {
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    cmd = { 'Mason', 'MasonInstall', 'MasonUpdate', 'MasonToolsInstall', 'MasonToolsUpdate' },
     dependencies = {
-      { 'mason-org/mason.nvim' },
+      { 'mason-org/mason.nvim', cmd = 'Mason' },
     },
     config = function()
       require('mason').setup {}
       require('mason-tool-installer').setup {
-        auto_update = true,
+        auto_update = false,
+        run_on_start = false,
         ensure_installed = {
           'jq',
           'ruff',
