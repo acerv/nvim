@@ -1,9 +1,9 @@
 return {
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    cmd = { 'Mason', 'MasonInstall', 'MasonUpdate', 'MasonToolsInstall', 'MasonToolsUpdate' },
+    lazy = false,
     dependencies = {
-      { 'mason-org/mason.nvim', cmd = 'Mason' },
+      { 'mason-org/mason.nvim' },
     },
     config = function()
       require('mason').setup {}
