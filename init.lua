@@ -1,5 +1,7 @@
--- Speedup neovim
-if vim.loader then
+-- Speedup neovim when using a Lua runtime that supports vim.loader.
+-- Some builds use plain Lua 5.1, where load() cannot load strings and
+-- vim.loader fails during startup.
+if vim.loader and jit then
   vim.loader.enable()
 end
 
