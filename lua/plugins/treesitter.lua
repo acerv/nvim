@@ -29,6 +29,8 @@ return {
         'json',
         'yaml',
         'perl',
+        'python',
+        'regex',
         'go',
         'rust',
         'rst',
