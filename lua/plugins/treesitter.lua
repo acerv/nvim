@@ -51,14 +51,21 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
     branch = 'main',
-    event = 'BufReadPre',
-    config = function()
-      vim.keymap.set('n', '<leader>nn', function()
-        require('nvim-treesitter-textobjects.swap').swap_next '@parameter.inner'
-      end, { desc = 'Swap next parameter' })
-      vim.keymap.set('n', '<leader>np', function()
-        require('nvim-treesitter-textobjects.swap').swap_previous '@parameter.inner'
-      end, { desc = 'Swap previous parameter' })
-    end,
+    keys = {
+      {
+        '<leader>nn',
+        function()
+          require('nvim-treesitter-textobjects.swap').swap_next '@parameter.inner'
+        end,
+        desc = 'Swap next parameter',
+      },
+      {
+        '<leader>np',
+        function()
+          require('nvim-treesitter-textobjects.swap').swap_previous '@parameter.inner'
+        end,
+        desc = 'Swap previous parameter',
+      },
+    },
   },
 }

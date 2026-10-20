@@ -1,7 +1,7 @@
 return {
   {
     'jakewvincent/mkdnflow.nvim',
-    event = 'VeryLazy',
+    ft = { 'markdown' },
     config = function()
       require('mkdnflow').setup {
         links = {

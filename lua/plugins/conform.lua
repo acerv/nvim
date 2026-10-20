@@ -1,7 +1,11 @@
 return {
   {
     'stevearc/conform.nvim',
-    event = 'VeryLazy',
+    event = 'BufWritePre',
+    cmd = { 'ConformInfo', 'ToggleFormat' },
+    keys = {
+      { '<leader>uf', '<cmd>ToggleFormat<CR>', desc = 'Toggle Code Formatting' },
+    },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -46,8 +50,6 @@ return {
         desc = 'Disable autoformat-on-save',
         bang = true,
       })
-
-      vim.keymap.set('n', '<leader>uf', '<cmd>ToggleFormat<CR>', { desc = 'Toggle Code Formatting' })
 
       require('conform').setup(opts)
     end,
