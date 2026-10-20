@@ -10,9 +10,7 @@ return {
         end
         local disable_filetypes = {
           c = true,
-          h = true,
           cpp = true,
-          hpp = true,
         }
         local lsp_format_opt
 
@@ -31,6 +29,7 @@ return {
         lua = { 'stylua' },
         python = { 'ruff_organize_imports', 'ruff_format' },
         bash = { 'shfmt' },
+        sh = { 'shfmt' },
         json = { 'jq' },
         markdown = { 'prettier' },
       },
