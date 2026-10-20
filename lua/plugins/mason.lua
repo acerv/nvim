@@ -1,12 +1,30 @@
 return {
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    lazy = false,
+    cmd = {
+      'Mason',
+      'MasonInstall',
+      'MasonUninstall',
+      'MasonUninstallAll',
+      'MasonLog',
+      'MasonUpdate',
+      'MasonToolsInstall',
+      'MasonToolsInstallSync',
+      'MasonToolsUpdate',
+      'MasonToolsUpdateSync',
+      'MasonToolsClean',
+    },
     dependencies = {
       { 'mason-org/mason.nvim' },
     },
+    init = function()
+      local mason_bin = vim.fn.stdpath 'data' .. '/mason/bin'
+      if not vim.env.PATH:find(mason_bin, 1, true) then
+        vim.env.PATH = mason_bin .. ':' .. vim.env.PATH
+      end
+    end,
     config = function()
-      require('mason').setup {}
+      require('mason').setup { PATH = 'skip' }
       require('mason-tool-installer').setup {
         auto_update = false,
         run_on_start = false,
