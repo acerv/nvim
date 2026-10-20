@@ -55,10 +55,10 @@ return {
     config = function()
       vim.keymap.set('n', '<leader>nn', function()
         require('nvim-treesitter-textobjects.swap').swap_next '@parameter.inner'
-      end)
+      end, { desc = 'Swap next parameter' })
       vim.keymap.set('n', '<leader>np', function()
         require('nvim-treesitter-textobjects.swap').swap_previous '@parameter.inner'
-      end)
+      end, { desc = 'Swap previous parameter' })
     end,
   },
 }
