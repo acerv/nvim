@@ -408,6 +408,7 @@ return {
         })
       end,
       desc = 'Toggle terminal',
+      mode = { 'n', 't' },
     },
     -- Lazygit
     {
@@ -435,7 +436,4 @@ return {
       mode = { 'n', 't' },
     },
   },
-  init = function()
-    vim.keymap.set('t', '<A-3>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
-  end,
 }
