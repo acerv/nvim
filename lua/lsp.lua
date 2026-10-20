@@ -105,6 +105,10 @@ vim.g.lsp_servers = {
     cmd = { 'marksman', 'server' },
     filetypes = { 'markdown' },
   },
+  ['dockerfile-language-server'] = {
+    cmd = { 'docker-langserver', '--stdio' },
+    filetypes = { 'dockerfile' },
+  },
 }
 
 for name, setup in pairs(vim.g.lsp_servers) do
