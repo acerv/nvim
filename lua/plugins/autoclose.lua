@@ -1,5 +1,10 @@
 return {
-  'windwp/nvim-autopairs',
+  'saghen/blink.pairs',
+  version = '*',
+  dependencies = 'saghen/blink.lib',
   event = 'VeryLazy',
-  config = true,
+  build = function()
+    require('blink.pairs').download():pwait(60000)
+  end,
+  opts = {},
 }
