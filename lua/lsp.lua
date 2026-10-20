@@ -19,7 +19,10 @@ vim.g.lsp_servers = {
     },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
   },
-  ['yaml-language-server'] = {},
+  ['yaml-language-server'] = {
+    cmd = { 'yaml-language-server', '--stdio' },
+    filetypes = { 'yaml' },
+  },
   ['bash-language-server'] = {
     cmd = { 'bash-language-server', 'start' },
     filetypes = { 'bash', 'sh' },
