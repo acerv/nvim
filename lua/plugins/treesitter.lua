@@ -4,6 +4,14 @@ return {
     branch = 'main',
     event = 'VeryLazy',
     main = 'nvim-treesitter',
+    init = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('treesitter-start', { clear = true }),
+        callback = function(ev)
+          pcall(vim.treesitter.start, ev.buf)
+        end,
+      })
+    end,
     config = function()
       require('nvim-treesitter').setup()
       local ensure_installed = {
