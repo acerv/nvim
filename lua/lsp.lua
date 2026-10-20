@@ -71,7 +71,7 @@ vim.g.lsp_servers = {
       },
     },
   },
-  ['lua-language-server'] = {
+  ['lua_ls'] = {
     cmd = { 'lua-language-server' },
     root_markers = {
       '.luarc.json',
@@ -86,7 +86,6 @@ vim.g.lsp_servers = {
     filetypes = { 'lua' },
     settings = {
       Lua = {
-        diagnostics = { globals = { 'vim' } },
         completion = {
           callSnippet = 'Replace',
         },
