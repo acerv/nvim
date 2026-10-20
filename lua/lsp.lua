@@ -31,7 +31,10 @@ vim.g.lsp_servers = {
     cmd = { 'vscode-json-language-server', '--stdio' },
     filetypes = { 'json', 'jsonc' },
   },
-  ['perlnavigator'] = {},
+  ['perlnavigator'] = {
+    cmd = { 'perlnavigator', '--stdio' },
+    filetypes = { 'perl' },
+  },
   ['pyrefly'] = {
     cmd = { 'pyrefly', 'lsp' },
     filetypes = { 'python' },
