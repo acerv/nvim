@@ -14,5 +14,11 @@ vim.g.have_nerd_font = true
 
 require 'options'
 require 'keymaps'
-require 'lsp'
 require 'lazy-bootstrap'
+
+vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
+  once = true,
+  callback = function()
+    require 'lsp'
+  end,
+})
