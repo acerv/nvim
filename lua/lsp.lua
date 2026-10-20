@@ -6,7 +6,7 @@ vim.g.lsp_servers = {
       'clangd',
       '--header-insertion=never',
       '-j',
-      string.gsub(vim.fn.system 'nproc', '\n', ''),
+      tostring((vim.uv or vim.loop).available_parallelism()),
       '--completion-style=detailed',
       '--function-arg-placeholders',
       '--rename-file-limit=0',
