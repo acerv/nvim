@@ -417,6 +417,23 @@ return {
       end,
       desc = 'Lazygit',
     },
+    -- Words (LSP references)
+    {
+      ']]',
+      function()
+        Snacks.words.jump(vim.v.count1)
+      end,
+      desc = 'Next Reference',
+      mode = { 'n', 't' },
+    },
+    {
+      '[[',
+      function()
+        Snacks.words.jump(-vim.v.count1)
+      end,
+      desc = 'Prev Reference',
+      mode = { 'n', 't' },
+    },
   },
   init = function()
     vim.keymap.set('t', '<A-3>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
